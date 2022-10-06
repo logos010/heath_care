@@ -1,6 +1,6 @@
 {
-    "name": "woss_health_care",
-    "short_name": "woss_health_care",
+    "name": "flutter_woss_healthcare",
+    "short_name": "flutter_woss_healthcare",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

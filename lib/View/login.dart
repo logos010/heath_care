@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:woss_health_care/Common/ColorPalette.dart';
 import 'package:woss_health_care/Common/CommonLocal.dart';
 import 'package:woss_health_care/Model/UserModel.dart';
-import 'package:woss_health_care/View/main.dart';
+import 'package:woss_health_care/View/doctor_home_page.dart';
+
+import '../main.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -12,14 +14,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController emailController = new TextEditingController();
+  TextEditingController phoneController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    emailController.text = 'Patient';
+    phoneController.text = '0393338069';
   }
 
   @override
@@ -93,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 5,
                 ),
                 textField(
-                    emailController,
+                    phoneController,
                     TextInputType.phone,
                     Icon(
                       Icons.phone_outlined,
@@ -160,16 +162,19 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     onPressed: () {
-                      if (emailController.text == 'Patient') {
-                        userMode = new UserMode('Thanh Binh');
+                      if (phoneController.text == '0393338069') {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => MyHomePage(),
+                          ),
+                        );
                       } else {
-                        userMode = new UserMode('Dr.Flutter');
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => HomePageDoctor(),
+                          ),
+                        );
                       }
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => MyHomePage(),
-                        ),
-                      );
                     },
                     child: Text(
                       'Sign In',

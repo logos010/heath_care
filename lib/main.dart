@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:woss_health_care/Common/ColorPalette.dart';
 import 'package:woss_health_care/View/HomeTab/RewardPage.dart';
 import 'package:woss_health_care/View/start_page.dart';
-
-import 'HomeTab/ReminderPage.dart';
+import 'View/HomeTab/ReminderPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -60,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       bottomNavigationBar: BottomNavyBar(
         selectedIndex: _currentIndex,
+        itemCornerRadius: 16,
         onItemSelected: (index) {
           setState(() => _currentIndex = index);
           _pageController.jumpToPage(index);
@@ -76,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            textAlign: TextAlign.center,
             activeColor: AppColor.primary500,
             inactiveColor: AppColor.grayScale950,
             icon: Image.asset('assets/reminder.png'),
@@ -89,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            textAlign: TextAlign.center,
             activeColor: AppColor.yellow500,
             inactiveColor: AppColor.grayScale950,
             icon: Image.asset(

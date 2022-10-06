@@ -8,21 +8,21 @@
             "name": "woss_health_care",
             "request": "launch",
             "type": "dart",
-            "program": "lib/View/main.dart"
+            "program": "lib/main.dart"
         },
-        // {
-        //     "name": "woss_health_care (profile mode)",
-        //     "request": "launch",
-        //     "type": "dart",
-        //     "flutterMode": "profile",
-        //     "program": "lib/View/main.dart"
-        // },
-        // {
-        //     "name": "woss_health_care (release mode)",
-        //     "request": "launch",
-        //     "type": "dart",
-        //     "flutterMode": "release",
-        //     "program": "lib/View/main.dart"
-        // }
+        {
+            "name": "woss_health_care (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "woss_health_care (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/main.dart"
+        }
     ]
 }

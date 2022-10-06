@@ -93,10 +93,10 @@ class RewardPage extends StatelessWidget {
                             Spacer(),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
-                                  width: deviceSize.width * 0.5,
+                                  width: deviceSize.width * 0.45,
                                   height: 12,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
@@ -119,7 +119,9 @@ class RewardPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 10),
+                                SizedBox(
+                                  width: 5,
+                                ),
                                 Text('25/50',
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
@@ -283,7 +285,7 @@ class RewardPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: deviceSize.width * 0.5,
+                                  width: deviceSize.width * 0.45,
                                   height: 12,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
@@ -306,7 +308,7 @@ class RewardPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 10),
+                                SizedBox(width: 5),
                                 Text('25/50',
                                     style: TextStyle(
                                         fontFamily: 'Poppins',

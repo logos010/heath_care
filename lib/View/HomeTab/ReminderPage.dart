@@ -4,6 +4,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:woss_health_care/Common/ColorPalette.dart';
 import 'package:woss_health_care/Model/ReminderModel.dart';
+import 'package:woss_health_care/View/record_page.dart';
+import 'package:woss_health_care/View/scan_page.dart';
 
 class ReminderPage extends StatelessWidget {
   List<ReminderModel> reminders = [
@@ -30,7 +32,8 @@ class ReminderPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              appBar(context),
+              SizedBox(height: 30),
+              appBar(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -186,35 +189,54 @@ class ReminderPage extends StatelessWidget {
                                           fontWeight: FontWeight.w400,
                                           color: AppColor.grayScale00)),
                                   SizedBox(height: 10),
-                                  Visibility(
-                                    visible: item.isAvailablel,
-                                    child: Row(
-                                      children: [
-                                        Spacer(),
-                                        Container(
-                                          width: 104,
-                                          height: 40,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(16),
-                                            color: AppColor.grayScale00,
+                                  GestureDetector(
+                                    onTap: () {
+                                      if (item.type == 'TAKE MEDICINE') {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) => RecordPage(),
                                           ),
-                                          child: Center(
-                                            child: Text(
-                                                (item.type == "TAKE MEDICINE")
-                                                    ? "Record now"
-                                                    : "Scan now",
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w700,
-                                                    color: (item.type ==
-                                                            "TAKE MEDICINE")
-                                                        ? AppColor.primary500
-                                                        : AppColor.yellow500)),
+                                        );
+                                      } else {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) => ScanPage(),
                                           ),
-                                        ),
-                                      ],
+                                        );
+                                      }
+                                    },
+                                    child: Visibility(
+                                      visible: item.isAvailablel,
+                                      child: Row(
+                                        children: [
+                                          Spacer(),
+                                          Container(
+                                            width: 104,
+                                            height: 40,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
+                                              color: AppColor.grayScale00,
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                  (item.type == "TAKE MEDICINE")
+                                                      ? "Record now"
+                                                      : "Scan now",
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      color: (item.type ==
+                                                              "TAKE MEDICINE")
+                                                          ? AppColor.primary500
+                                                          : AppColor
+                                                              .yellow500)),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   )
                                 ],
@@ -231,9 +253,7 @@ class ReminderPage extends StatelessWidget {
     );
   }
 
-  Widget appBar(BuildContext context) {
-    var deviceSize = MediaQuery.of(context).size;
-
+  Widget appBar() {
     return Row(
       children: [
         SizedBox(height: 50),
