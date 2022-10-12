@@ -1,7 +1,11 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dotted_line/dotted_line.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:woss_health_care/Common/ColorPalette.dart';
+import 'package:woss_health_care/View/treatment_page.dart';
 
 class PatientDetailPage extends StatefulWidget {
   late String patientName;
@@ -21,6 +25,19 @@ class _PatientDetailPageState extends State<PatientDetailPage> {
   Widget build(BuildContext context) {
     var deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              CupertinoPageRoute(
+                fullscreenDialog: true,
+                builder: (context) {
+                  return TreatmentPage();
+                },
+              ),
+            );
+          },
+          child: Icon(Icons.add)),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Container(
         width: deviceSize.width,
         height: deviceSize.height,
@@ -466,7 +483,8 @@ class _PatientDetailPageState extends State<PatientDetailPage> {
                       ],
                     ),
                   ),
-                )
+                ),
+                SizedBox(height: 80),
               ],
             ),
           ),
@@ -483,7 +501,7 @@ class _PatientDetailPageState extends State<PatientDetailPage> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Image.asset('assets/down.png'),
+          icon: Icon(Icons.arrow_back_ios_new_outlined),
         ),
         Text(
           'Details',

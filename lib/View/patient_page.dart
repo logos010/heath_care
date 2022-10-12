@@ -167,12 +167,17 @@ class PatientPage extends StatelessWidget {
     var deviceSize = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
+        // Navigator.of(context).push(
+        //   CupertinoPageRoute(
+        //     fullscreenDialog: true,
+        //     builder: (context) {
+        //       return PatientDetailPage(patient);
+        //     },
+        //   ),
+        // );
         Navigator.of(context).push(
-          CupertinoPageRoute(
-            fullscreenDialog: true,
-            builder: (context) {
-              return PatientDetailPage(patient);
-            },
+          MaterialPageRoute(
+            builder: (context) => PatientDetailPage(patient),
           ),
         );
       },
